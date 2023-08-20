@@ -88,8 +88,8 @@
         "val": ["<img_path>", "<unused>"]
     },
     "euro_sat_folder": {
-        "train": ["<img_path>", "<lbl_path>"],
-        "val": ["<img_path>", "<lbl_path>"]
+        "train": ["/home/esteve/fast_folder/satellite-surface-algae-detection/vissl/eurosat/train", "<lbl_path>"],
+        "val": ["/home/esteve/fast_folder/satellite-surface-algae-detection/vissl/eurosat/val", "<lbl_path>"]
     },
     "food101_folder": {
         "train": ["<img_path>", "<lbl_path>"],
