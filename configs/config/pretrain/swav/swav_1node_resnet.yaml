@@ -10,11 +10,21 @@ config:
     PERF_STATS:
       MONITOR_PERF_STATS: True
       ROLLING_BTIME_FREQ: 313
+    TENSORBOARD_SETUP:
+      USE_TENSORBOARD: True
+      EXPERIMENT_LOG_DIR: "moco_v2_reference"
+      LOG_PARAMS: False
+      FLUSH_EVERY_N_MIN: 5
   DATA:
+    internal_data_path: '/home/esteve/projects/data/internal-data-dvc/data/*/*/*.jpg'
+    external_data_path: '/home/esteve/projects/data/external-data-dvc/*/**/*.jpg'
+    ambient_data_path: '/home/esteve/projects/data/internal-data-dvc/ambient-data/**/*.jpg'
+    cluster_family_path: "/home/esteve/projects/swav/dataset/cluster_family.csv"
+    crop_data_path: "/home/esteve/projects/swav/labelled_data.pkl"
     NUM_DATALOADER_WORKERS: 8
     TRAIN:
-      DATA_SOURCES: [disk_folder]
-      DATASET_NAMES: [imagenet1k_folder]
+      DATA_SOURCES: [DVCswavDataset]
+      DATASET_NAMES: [stylib_dataset]
       BATCHSIZE_PER_REPLICA: 4
       LABEL_TYPE: sample_index    # just an implementation detail. Label isn't used
       TRANSFORMS:
@@ -62,7 +72,8 @@ config:
       GROUP_SIZE: 8
     AMP_PARAMS:
       USE_AMP: True
-      AMP_ARGS: {"opt_level": "O1"}
+      AMP_TYPE: pytorch
+      #AMP_ARGS: {"opt_level": "O1"}
   LOSS:
     name: swav_loss
     swav_loss:
@@ -77,7 +88,7 @@ config:
         start_iter: 0
   OPTIMIZER:
       name: sgd
-      use_larc: True
+      use_larc: False
       larc_config:
         clip: False
         trust_coefficient: 0.001
