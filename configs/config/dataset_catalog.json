@@ -1,4 +1,8 @@
 {
+    "stylib_dataset": {
+        "train": ["airstore://flashblade_imagenet_train", "<unused>"],
+        "val": ["airstore://flashblade_imagenet_val", "<unused>"]
+    },
     "airstore_imagenet": {
         "train": ["airstore://flashblade_imagenet_train", "<unused>"],
         "val": ["airstore://flashblade_imagenet_val", "<unused>"]

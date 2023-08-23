@@ -30,6 +30,7 @@ from vissl.data.ssl_dataset import GenericSSLDataset
 from vissl.data.synthetic_dataset import SyntheticImageDataset
 from vissl.data.torchvision_dataset import TorchvisionDataset
 from vissl.utils.misc import set_dataloader_seeds, setup_multiprocessing_method
+from vissl.data.DVCLoader import DVCswavDataset
 
 
 __all__ = [
@@ -47,6 +48,7 @@ DATASET_SOURCE_MAP = {
     "disk_roi_annotations": DiskImageDataset,
     "torchvision_dataset": TorchvisionDataset,
     "synthetic": SyntheticImageDataset,
+    "DVCswavDataset": DVCswavDataset,
 }
 
 
