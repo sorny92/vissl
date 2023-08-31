@@ -12,7 +12,7 @@ config:
       ROLLING_BTIME_FREQ: 313
     TENSORBOARD_SETUP:
       USE_TENSORBOARD: True
-      EXPERIMENT_LOG_DIR: "moco_v2_reference"
+      EXPERIMENT_LOG_DIR: "logs"
       LOG_PARAMS: False
       FLUSH_EVERY_N_MIN: 5
   DATA:
@@ -63,6 +63,9 @@ config:
       PARAMS: [
         ["swav_head", {"dims": [2048, 2048, 128], "use_bn": True, "num_clusters": [3000]}],
       ]
+      WEIGHTS_INIT:
+        PARAMS_FILE: "/home/esteve/projects/swav/PRETRAINED/model_final_checkpoint_phase399.torch"
+        STATE_DICT_KEY_NAME: classy_state_dict
     TEMP_FROZEN_PARAMS_ITER_MAP: [
       ['module.heads.0.prototypes0.weight', 313],
     ]
@@ -140,5 +143,5 @@ config:
   CHECKPOINT:
     DIR: "."
     AUTO_RESUME: True
-    CHECKPOINT_FREQUENCY: 5           # every phase since data is big
+    CHECKPOINT_FREQUENCY: 1           # every phase since data is big
     CHECKPOINT_ITER_FREQUENCY: -1    # equals 1epoch of imagenet-1k

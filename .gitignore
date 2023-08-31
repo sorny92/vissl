@@ -36,7 +36,7 @@ var/
 .installed.cfg
 *.egg
 .hydra/
-tb_logs/
+../logs/tb_logs_g5/
 metrics.json
 stdout.json
 
